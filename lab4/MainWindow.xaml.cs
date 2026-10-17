@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace lab3
+namespace lab4
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -43,6 +43,12 @@ namespace lab3
                     Syrup syr = new Syrup(name, dosage, price, volume);
                     _medicines.Add(syr);
                     MedicineList.Items.Add(syr.Apply());
+                }
+                else if (TypeComboBox.SelectedIndex == 2)
+                {
+                    Drops drop = new Drops(name, dosage, price);
+                    _medicines.Add(drop);
+                    MedicineList.Items.Add(drop.Apply());
                 }
             }
             catch (Exception ex)

@@ -1,4 +1,4 @@
-﻿using lab3;
+﻿using lab4;
 
 namespace TestProject1
 {
@@ -140,6 +140,56 @@ namespace TestProject1
         public void GetTotalCost_NullList_ThrowsNullReferenceException()
         {
             Assert.ThrowsException<NullReferenceException>(() => MedicineAnalysis.GetTotalCost(null));
+        }
+    }
+
+    [TestClass]
+    public sealed class DropsTests
+    {
+        [TestMethod]
+        public void CheckExpirationDate_LessThan12Months_ReturnsTrue()
+        {
+            Drops drop = new Drops("Візин", "10 мл", 150);
+            bool result = drop.CheckExpirationDate(5);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckExpirationDate_Exactly12Months_ReturnsTrue()
+        {
+            Drops drop = new Drops("Візин", "10 мл", 150);
+            bool result = drop.CheckExpirationDate(12);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CheckExpirationDate_MoreThan12Months_ReturnsFalse()
+        {
+            Drops drop = new Drops("Візин", "10 мл", 150);
+            bool result = drop.CheckExpirationDate(13);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void Apply_ReturnsCorrectFormattedString()
+        {
+            Drops drop = new Drops("Візин", "10 мл", 150);
+            string result = drop.Apply();
+            Assert.AreEqual("Закапати краплі Візин (дозування: 10 мл).", result);
+        }
+
+        [TestMethod]
+        public void GetSideEffects_ReturnsCorrectFormattedString()
+        {
+            Drops drop = new Drops("Візин", "10 мл", 150);
+            string result = drop.GetSideEffects();
+            Assert.AreEqual("Побічні ефекти від Візин: можлива алергічна реакція.", result);
+        }
+
+        [TestMethod]
+        public void DropsConstructor_NegativePrice_ThrowsArgumentException()
+        {
+            Assert.ThrowsException<ArgumentException>(() => new Drops("Тест", "10 мл", -50.0));
         }
     }
 }

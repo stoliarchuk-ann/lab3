@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab3
+namespace lab4
 {
     public class MedicineAnalysis
     {
@@ -17,6 +17,17 @@ namespace lab3
             }
 
             return totalCost;
+        }
+
+        public static int GetValidMedicinesCount(List<IExpirationCheckable> medicines, int monthsPassed)
+        {
+            int validCount = 0;
+            foreach (var med in medicines)
+            {
+                if (med.CheckExpirationDate(monthsPassed))
+                    validCount++;
+            }
+            return validCount;
         }
     }
 }

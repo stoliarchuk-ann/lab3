@@ -1,9 +1,9 @@
-﻿<Window x:Class="lab3.MainWindow"
+﻿<Window x:Class="lab4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:lab3"
+        xmlns:local="clr-namespace:lab4"
         mc:Ignorable="d"
         Title="Облік медичних препаратів" Height="650" Width="650" Background="#F4F4F6">
 
@@ -15,6 +15,7 @@
                 <ComboBox Name="TypeComboBox" Margin="0,0,0,10">
                     <ComboBoxItem Content="Таблетка" IsSelected="True" />
                     <ComboBoxItem Content="Сироп" />
+                    <ComboBoxItem Content="Краплі" />
                 </ComboBox>
 
                 <TextBlock Text="Назва ліків:" />

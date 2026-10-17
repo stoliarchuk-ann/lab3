@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab3
+namespace lab4
 {
     public abstract class Medicine
     {
@@ -31,7 +31,7 @@ namespace lab3
         public abstract string GetSideEffects();
     }
 
-    public class Tablet : Medicine
+    public class Tablet : Medicine, IApplicable, IHasSideEffects
     {
         public int pillsInPackage;
         public Tablet(string name, string dosage, double price, int pillsInPackage)
@@ -53,7 +53,7 @@ namespace lab3
         }
     }
 
-    public class Syrup : Medicine
+    public class Syrup : Medicine, IApplicable, IExpirationCheckable, IHasSideEffects
     {
         public double volume;
         public Syrup(string name, string dosage, double price, double volume) 
